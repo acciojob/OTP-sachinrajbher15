@@ -1,11 +1,17 @@
 const inputs = document.querySelectorAll('.code');
 
+document.addEventListener("DOMContentLoaded", (e) => {
+  inputs[0].focus();
+});
+
 inputs.forEach((input, idx) => {
+	
 	input.addEventListener('input', () => {
 		if(input.value.length === 1 && idx < inputs.length-1){
 			inputs[idx+1].focus();
 		}
 	});
+	
 	input.addEventListener('keydown', (event) =>{
 		if(event.key === 'Backspace' && input.value === ''){
 			if(idx>0){
@@ -14,4 +20,5 @@ inputs.forEach((input, idx) => {
 			}
 		}
 	});
+	
 });
